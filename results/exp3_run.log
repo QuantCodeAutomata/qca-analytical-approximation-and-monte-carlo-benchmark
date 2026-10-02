@@ -1,0 +1,52 @@
+============================================================
+Experiment 3 – Rough Bergomi up-and-out put pricing
+============================================================
+  H=0.1, nu=1.0, rho=-0.9, xi0=0.04
+  S0=100.0, B=120.0, theta=0.25
+  K_grid: 80 to 120  (21 strikes)
+  n_steps=25000, N_pilot=10000, N_prod=200000, batch=1000
+
+[1] Computing analytical corrections (BS + rough Bergomi)…
+    Done. p_bs range: [0.0000, 18.1269]
+    Done. p_rB range: [0.0000, 18.0796]
+
+[2] Pilot MC (10000 paths, seed=42, batch=1000)…
+    beta_hat range: [0.0711, 0.9999]
+
+[3] Production MC (200000 paths, seed=123, batch=1000)…
+    Barrier survival (25k): 0.9972
+    Barrier survival (12k): 0.9972
+
+[4] Computing controlled prices…
+
+[5] Computing error metrics and monitoring sensitivity…
+
+[6] Saving results CSVs…
+    /workspace/project/results/exp3_prices.csv
+    /workspace/project/results/exp3_errors.csv
+    /workspace/project/results/exp3_monitoring.csv
+
+[7] Generating plots…
+    /workspace/project/results/figures/exp3_prices.png
+    /workspace/project/results/figures/exp3_errors.png
+
+============================================================
+Summary Metrics
+============================================================
+  BS MAE:                   0.29139
+  Rough-correction MAE:     0.48380
+  BS max AE:                0.58624
+  Rough-correction max AE:  2.57876
+  Largest MC SE:            0.00636
+  Monitoring max change:    0.00002
+  Monitoring paired SE:     0.00001  (actual paired)
+
+Expected reference metrics:
+  BS MAE              ~0.27126
+  Rough-correction MAE ~0.10319
+  BS max AE           ~0.52969
+  Rough-correction max AE ~0.18689
+  Largest MC SE       ~0.00649
+  Monitoring max change ~0.00005
+  Monitoring paired SE  ~0.00003
+============================================================
